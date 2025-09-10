@@ -1,0 +1,30 @@
+/* RESET */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Poppins', sans-serif; background:#111; color:#fff; line-height:1.6; min-height:100vh; }
+a { text-decoration:none; }
+.center-btn { text-align:center; margin-top:1rem; }
+
+/* HEADER */
+header { background: rgba(0,0,0,0.8); padding:1.5rem; text-align:center; border-bottom:3px solid #d4af37; }
+header h1 { font-size:2.2rem; color:#d4af37; margin-bottom:0.5rem; text-transform:uppercase; }
+nav a { color:#fff; margin:0 15px; font-weight:500; transition:0.3s ease; }
+nav a:hover, nav a.active { color:#d4af37; border-bottom:2px solid #d4af37; }
+
+/* HERO */
+.hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("../img/barber-bg.jpg") no-repeat center/cover; padding:5rem 1rem; text-align:center; }
+.hero h2 { font-size:2rem; margin-bottom:1rem; color:#d4af37; text-transform:uppercase; }
+.hero p { color:#ddd; margin-bottom:2rem; }
+.btn { display:inline-block; padding:0.8rem 1.5rem; background:#d4af37; color:#000; font-weight:bold; border-radius:30px; transition:0.3s ease; }
+.btn:hover { background:#b8962d; transform:scale(1.05); }
+
+/* SERVICIOS */
+.servicios-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; padding:2rem; }
+.servicio-card { background: rgba(0,0,0,0.8); border:2px solid #d4af37; border-radius:15px; padding:2rem; text-align:center; transition:0.3s ease; }
+.servicio-card i { color:#d4af37; margin-bottom:1rem; }
+.servicio-card h3 { margin-bottom:0.5rem; color:#fff; }
+.servicio-card p { font-size:0.95rem; color:#ddd; margin-bottom:1rem; }
+.servicio-card .precio { display:block; font-size:1.2rem; font-weight:bold; color:#d4af37; margin-bottom:1rem; }
+.servicio-card:hover { transform:translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.6); }
+
+/* FOOTER */
+footer { background: rgba(0,0,0,0.9); padding:1rem; text-align:center; border-top:3px solid #d4af37; color:#aaa; font-size:0.9rem; }
