@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reservar Cita - Barbería El Estilo</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="img/logo.png" alt="Logo Barbería" class="logo-img">
+    </div>
+    <h1>Barbería El Estilo</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="reservas.html" class="active">Reservar</a>
+      <a href="clientes.html">Clientes</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+
+  <section id="reservas-form">
+    <h2>Agendar tu Cita</h2>
+    <p>Completa el formulario para asegurar tu lugar. ¡Te esperamos!</p>
+    <div class="form-container">
+      <form action="reservas.php" method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required>
+
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha" required>
+
+        <label for="hora">Hora:</label>
+        <input type="time" id="hora" name="hora" required>
+
+        <button type="submit" class="btn">Reservar Ahora</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Barbería El Estilo | Desarrollado con ❤️</p>
+  </footer>
+</body>
+</html>
