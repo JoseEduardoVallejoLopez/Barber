@@ -8,10 +8,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <!-- HEADER -->
   <header>
     <div class="logo">
-      <img src="img/logo.png" alt="Logo Barbería" class="logo-img">
+      <img src="../img/logo.png" alt="Logo Barbería" class="logo-img">
     </div>
     <h1>Barbería El Estilo</h1>
     <nav>
@@ -19,41 +18,29 @@
       <a href="servicios.html" class="active">Servicios</a>
       <a href="reservas.html">Reservar</a>
       <a href="clientes.html">Clientes</a>
-      <a href="contacto.html">Contacto</a>
     </nav>
   </header>
 
-  <!-- SECCIÓN DE SERVICIOS -->
   <section id="servicios">
     <h2>Nuestros Servicios</h2>
-    <div class="servicios-container">
-      <div class="servicio-card">
-        <i class="fas fa-cut fa-3x"></i>
-        <h3>Corte de Cabello</h3>
-        <p>Estilo moderno, clásico o personalizado.</p>
-        <span class="precio">$150 MXN</span>
-        <a href="reservas.html" class="btn">Reservar</a>
+    <div class="servicios-container" id="servicios-data">
       </div>
-      <div class="servicio-card">
-        <i class="fas fa-beard fa-3x"></i>
-        <h3>Barba & Afeitado</h3>
-        <p>Diseño, recorte y afeitado profesional.</p>
-        <span class="precio">$100 MXN</span>
-        <a href="reservas.html" class="btn">Reservar</a>
-      </div>
-      <div class="servicio-card">
-        <i class="fas fa-chair fa-3x"></i>
-        <h3>Paquete Completo</h3>
-        <p>Corte de cabello + barba + tratamiento facial.</p>
-        <span class="precio">$220 MXN</span>
-        <a href="reservas.html" class="btn">Reservar</a>
-      </div>
-      <div class="servicio-card">
-        <i class="fas fa-child fa-3x"></i>
-        <h3>Corte Infantil</h3>
-        <p>Los más pequeños también con estilo.</p>
-        <span class="precio">$120 MXN</span>
-        <a href="reservas.html" class="btn">Reservar</a>
-      </div>
-    </div>
-  </sectio
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Barbería </p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch('../Backend/servicios.php') // La ruta corregida
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('servicios-data').innerHTML = data;
+        })
+        .catch(error => console.error('Error al cargar los servicios:', error));
+    });
+  </script>
+</body>
+</html>

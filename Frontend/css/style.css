@@ -28,3 +28,68 @@ nav a:hover, nav a.active { color:#d4af37; border-bottom:2px solid #d4af37; }
 
 /* FOOTER */
 footer { background: rgba(0,0,0,0.9); padding:1rem; text-align:center; border-top:3px solid #d4af37; color:#aaa; font-size:0.9rem; }
+
+/* FORMULARIO DE RESERVAS (CARD) */
+.reserva-card {
+  max-width: 500px;
+  margin: 2rem auto;
+  background: rgba(0,0,0,0.8);
+  border: 2px solid #d4af37;
+  border-radius: 15px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+.reserva-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.reserva-card label {
+  font-weight: 600;
+  margin-top: 1rem;
+  color: #fff;
+}
+
+.reserva-card input {
+  padding: 0.8rem;
+  margin-top: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #d4af37;
+  background: #333;
+  color: #fff;
+}
+
+.reserva-card input:focus {
+  outline: none;
+  border-color: #b8962d;
+}
+
+.reserva-card .btn {
+  margin-top: 2rem;
+  width: 100%;
+}
+/* MEJORAS VISUALES PARA CAMPOS DE FECHA Y HORA */
+.input-group {
+    position: relative;
+    margin-top: 0.5rem;
+}
+
+.input-group i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #d4af37;
+    pointer-events: none; /* Permite hacer clic en el input a través del ícono */
+}
+
+.input-group input {
+    padding-left: 3rem;
+    width: 100%;
+    box-sizing: border-box;
+    /* Elimina el aspecto por defecto del navegador */
+    appearance: none;
+    -webkit-appearance: none;
+}
+
