@@ -26,6 +26,20 @@ CREATE TABLE reservas (
     servicio VARCHAR(100) NOT NULL
 );
 
+-- Crear la tabla para los usuarios (barberos)
+-- Advertencia: La contraseña no está encriptada para simplificar, pero no es seguro para producción.
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    usuario VARCHAR(50) NOT NULL UNIQUE,
+    contrasena VARCHAR(255) NOT NULL
+);
+
+-- Insertar un usuario de ejemplo (barbero)
+-- Usuario: barbero, Contraseña: barber123
+INSERT INTO usuarios (nombre, usuario, contrasena) VALUES
+('El Barbero', 'barbero', 'barber123');
+
 -- Insertar los servicios con sus precios
 INSERT INTO servicios (nombre, precio) VALUES
 ('Corte de Cabello', 180.00),

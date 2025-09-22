@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
   <header>
@@ -18,16 +19,14 @@
       <a href="servicios.html">Servicios</a>
       <a href="reservas.html" class="active">Reservar</a>
       <a href="clientes.html">Clientes</a>
-      <a href="contacto.html">Contacto</a>
     </nav>
   </header>
 
   <section id="reservas-form">
     <h2>Agendar tu Cita</h2>
     <p>Completa el formulario para asegurar tu lugar. ¡Te esperamos!</p>
-    <div id="mensaje-reserva" style="color: #d4af37; text-align: center; font-weight: bold;"></div>
     <div class="reserva-card">
-      <form action="../Backend/reservas.php" method="POST" id="reservaForm">
+      <form id="reservaForm">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
 
@@ -60,79 +59,9 @@
   </section>
 
   <footer>
-    <p>© 2025 Barbería </p>
+    <p>© 2025 Barberia</p>
   </footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const fechaInput = document.getElementById('fecha');
-        const horaInput = document.getElementById('hora');
-        const servicioSelect = document.getElementById('servicio');
-        const mensajeDiv = document.getElementById('mensaje-reserva');
-        const reservaForm = document.getElementById('reservaForm');
-        let reservasExistentes = {};
-
-        // Función para cargar los datos
-        function cargarDatos() {
-            fetch('../Backend/reservas.php')
-                .then(response => response.json())
-                .then(data => {
-                    const { servicios, reservas } = data;
-                    
-                    // Llenar el select de servicios
-                    servicioSelect.innerHTML = '';
-                    if (servicios.length > 0) {
-                        servicios.forEach(s => {
-                            const option = document.createElement('option');
-                            option.value = s.nombre;
-                            option.textContent = s.nombre;
-                            servicioSelect.appendChild(option);
-                        });
-                    } else {
-                        servicioSelect.innerHTML = '<option value="">No hay servicios disponibles</option>';
-                    }
-
-                    // Organizar las reservas por fecha
-                    reservasExistentes = reservas.reduce((acc, reserva) => {
-                        (acc[reserva.fecha] = acc[reserva.fecha] || []).push(reserva.hora);
-                        return acc;
-                    }, {});
-
-                    // Establecer la fecha mínima
-                    const hoy = new Date();
-                    hoy.setDate(hoy.getDate() + 1);
-                    const manana = hoy.toISOString().split('T')[0];
-                    fechaInput.min = manana;
-
-                    actualizarHoras();
-                })
-                .catch(error => {
-                    console.error('Error al cargar datos:', error);
-                    mensajeDiv.textContent = 'Error al cargar los datos del sistema de reservas.';
-                });
-        }
-
-        function actualizarHoras() {
-            const fechaSeleccionada = fechaInput.value;
-            const horasOcupadas = reservasExistentes[fechaSeleccionada] || [];
-            
-            horaInput.min = "09:00";
-            horaInput.max = "19:00";
-            
-            // Validar la hora seleccionada
-            reservaForm.addEventListener('submit', (event) => {
-              const horaSeleccionada = horaInput.value;
-              if (horasOcupadas.includes(horaSeleccionada)) {
-                event.preventDefault(); // Detiene el envío del formulario
-                mensajeDiv.textContent = 'Esa hora ya está reservada. Por favor, elige otra.';
-              }
-            });
-        }
-
-        fechaInput.addEventListener('change', actualizarHoras);
-        
-        cargarDatos();
-    });
-  </script>
+  <script src="js/app.js"></script>
 </body>
 </html>

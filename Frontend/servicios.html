@@ -16,8 +16,6 @@
     <nav>
       <a href="index.html">Inicio</a>
       <a href="servicios.html" class="active">Servicios</a>
-      <a href="reservas.html">Reservar</a>
-      <a href="clientes.html">Clientes</a>
     </nav>
   </header>
 
@@ -27,20 +25,10 @@
       </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    <p>© 2025 Barbería </p>
+    <p>© 2025 Barberia</p>
   </footer>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      fetch('../Backend/servicios.php') // La ruta corregida
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('servicios-data').innerHTML = data;
-        })
-        .catch(error => console.error('Error al cargar los servicios:', error));
-    });
-  </script>
+  <script src="js/app.js"></script>
 </body>
 </html>

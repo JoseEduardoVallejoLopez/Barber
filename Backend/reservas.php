@@ -18,7 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($stmt_check->num_rows > 0) {
         // La hora ya está ocupada
-        echo "Error: Esa hora ya ha sido reservada.";
+        $response = ['status' => 'error', 'message' => 'Esa hora ya ha sido reservada.'];
+        echo json_encode($response);
         $stmt_check->close();
         $conn->close();
         exit;
@@ -32,12 +33,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt_insert->bind_param("sssss", $nombre, $telefono, $fecha, $hora, $servicio);
 
     if ($stmt_insert->execute()) {
-        echo "Reserva realizada con éxito. Te esperamos, " . htmlspecialchars($nombre) . "!";
+        $response = ['status' => 'success', 'message' => 'Reserva realizada con éxito. Te esperamos, ' . htmlspecialchars($nombre) . '!'];
     } else {
-        echo "Error: " . $stmt_insert->error;
+        $response = ['status' => 'error', 'message' => 'Ocurrió un error al procesar tu reserva.'];
     }
     $stmt_insert->close();
     $conn->close();
+    echo json_encode($response);
     exit;
 }
 
